@@ -10,9 +10,13 @@
 <body class="bg-gray-100">
            <nav class="bg-gray-800 p-4 shadow-md">
            <div class="container mx-auto flex justify-between items-center">
-               <a class="text-white text-2xl font-semibold" href="~/">Database CW</a>
+             <asp:HyperLink CssClass="text-white text-2xl font-semibold" NavigateUrl="~/" runat="server">Database CW</asp:HyperLink>
+
                <ul class="hidden md:flex space-x-4 ml-auto">
-    <li><a class="hover:text-gray-300" runat="server" href="~/">Home</a></li>
+                       
+
+      <li><a class="hover:text-gray-300" runat="server" href="~/Home">Home</a></li>
+
     <li><a class="hover:text-gray-300" runat="server" href="~/user">User</a></li>
     <li><a class="hover:text-gray-300" runat="server" href="~/Task">Task</a></li>
     <li><a class="hover:text-gray-300" runat="server" href="~/Milestone">Milestone</a></li>

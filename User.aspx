@@ -1,153 +1,231 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="databaseCW.User" %>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>User Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50">
+    <!-- Enhanced Navigation -->
+    <nav class="bg-gray-800 shadow-lg">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <asp:HyperLink CssClass="text-white text-xl font-semibold tracking-tight" NavigateUrl="~/" runat="server">
+                     Database Cw
+                </asp:HyperLink>
+                <div class="hidden md:block">
+                  <div class="ml-10 flex items-center space-x-4">
+    <a runat="server" href="~/Home" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+ <a runat="server" href="~/user" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Users</a>
+ <a runat="server" href="~/Task" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tasks</a>
+ <a runat="server" href="~/Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Milestones</a>
+ <a runat="server" href="~/SubTask" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SubTasks</a>
+ <a runat="server" href="~/Project_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Project-User</a>
+ <a runat="server" href="~/Task_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Task-User</a>
+ <a runat="server" href="~/Project" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+ <a runat="server" href="~/Project_Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects-Milestone</a>
+ </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Main Content Container -->
+    <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <form id="form1" runat="server" class="space-y-8">
+            <!-- Data Grid Section -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+                <asp:GridView ID="GridView1" runat="server"
+                    AllowPaging="True"
+                    AllowSorting="True"
+                    AutoGenerateColumns="False"
+                    DataKeyNames="ID"
+                    DataSourceID="SqlDataSource1"
+                    CssClass="w-full border-collapse"
+                    HeaderStyle-CssClass="bg-gray-50"
+                    RowStyle-CssClass="even:bg-gray-50 hover:bg-gray-100 transition-colors">
+                    
+                    <Columns>
+                        <asp:CommandField 
+                            ShowDeleteButton="True" 
+                            ShowEditButton="True"
+                            ItemStyle-Width="140px"
+                            ControlStyle-CssClass="px-3 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-800 rounded-md hover:bg-gray-100 transition-colors" ShowSelectButton="True" >
+                        
+<ControlStyle CssClass="px-3 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-800 rounded-md hover:bg-gray-100 transition-colors"></ControlStyle>
 
-   <!-- Navbar -->
-<nav class="bg-gray-800 p-2 shadow-md w-full">
-    <div class="container mx-auto flex justify-between items-center">
-        <asp:HyperLink CssClass="text-white text-2xl font-semibold" NavigateUrl="~/" runat="server">Database CW</asp:HyperLink>
-        <ul class="hidden md:flex space-x-4 ml-auto">
-            <li><a class="hover:text-gray-300" runat="server" href="~/Home">Home</a></li>
-            <li><a class="hover:text-gray-300" runat="server" href="~/user">User</a></li>
-            <li><a class="hover:text-gray-300" runat="server" href="~/Task">Task</a></li>
-            <li><a class="hover:text-gray-300" runat="server" href="~/Milestone">Milestone</a></li>
-            <li><a class="hover:text-gray-300" runat="server" href="~/SubTask">SubTask</a></li>
-            <li><a class="hover:text-gray-300" runat="server" href="~/Project_User">Project-User</a></li>
-            <li><a class="hover:text-gray-300" runat="server" href="~/Task_User">Task-User</a></li>
-            <li><a class="hover:text-gray-300" runat="server" href="~/Project">Project</a></li>
-            <li><a class="hover:text-gray-300" runat="server" href="~/Project_Milestone">Project_Milestone</a></li>
-        </ul>
-        <button class="md:hidden text-white">☰</button>
-    </div>
-</nav>
+<ItemStyle Width="140px"></ItemStyle>
+                        </asp:CommandField>
+                        
+                        <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" >
+                        
+<ItemStyle CssClass="px-4 py-3 text-gray-700"></ItemStyle>
+                        </asp:BoundField>
+                        
+                        <asp:BoundField DataField="NAME" HeaderText="Name" SortExpression="NAME" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" >
+                        
+<ItemStyle CssClass="px-4 py-3 text-gray-700"></ItemStyle>
+                        </asp:BoundField>
+                        
+                        <asp:BoundField DataField="ROLE" HeaderText="Role" SortExpression="ROLE" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" >
+                        
+<ItemStyle CssClass="px-4 py-3 text-gray-700"></ItemStyle>
+                        </asp:BoundField>
+                        
+                        <asp:BoundField DataField="ADDRESS" HeaderText="Address" SortExpression="ADDRESS" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" >
+<ItemStyle CssClass="px-4 py-3 text-gray-700"></ItemStyle>
+                        </asp:BoundField>
+                    </Columns>
+                    
+                    <HeaderStyle CssClass="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200" />
+                    <RowStyle CssClass="border-b border-gray-200" />
+                    <PagerStyle CssClass="px-4 py-3 border-t border-gray-200 bg-gray-50 text-sm" />
+                </asp:GridView>
+            </div>
 
-    <!-- Main Content Below Navbar -->
-    <div class="flex flex-col items-center justify-center p-6 mt-6">
+            <!-- Form Section -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 space-y-6">
+                <asp:FormView ID="FormView1" runat="server"
+                    DataKeyNames="ID"
+                    DataSourceID="SqlDataSource1"
+                    CssClass="w-full space-y-6">
+                    
+                    <EditItemTemplate>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">User ID</label>
+                                    <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' 
+                                        CssClass="block w-full px-3 py-2 border rounded-md bg-gray-50 text-gray-600" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                                    <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Password</label>
+                                    <asp:TextBox ID="PASSWORDTextBox" runat="server" Text='<%# Bind("PASSWORD") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        TextMode="Password" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Role</label>
+                                    <asp:TextBox ID="ROLETextBox" runat="server" Text='<%# Bind("ROLE") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="md:col-span-2 space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Address</label>
+                                    <asp:TextBox ID="ADDRESSTextBox" runat="server" Text='<%# Bind("ADDRESS") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-end space-x-3 pt-4 border-t border-gray-200">
+                                <asp:LinkButton ID="UpdateCancelButton" runat="server"
+                                    CommandName="Cancel"
+                                    CssClass="px-4 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 border border-gray-300 rounded-md shadow-sm hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    Text="Cancel" />
+                                <asp:LinkButton ID="UpdateButton" runat="server"
+                                    CommandName="Update"
+                                    CssClass="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    Text="Save Changes" />
+                            </div>
+                        </div>
+                    </EditItemTemplate>
 
-        <form id="form1" runat="server" class="w-full max-w-4xl p-6 bg-white rounded-lg shadow-lg">
+                    <InsertItemTemplate>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">User ID</label>
+                                    <asp:TextBox ID="IDTextBox" runat="server" Text='<%# Bind("ID") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Full Name</label>
+                                    <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Password</label>
+                                    <asp:TextBox ID="PASSWORDTextBox" runat="server" Text='<%# Bind("PASSWORD") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                        TextMode="Password" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Role</label>
+                                    <asp:TextBox ID="ROLETextBox" runat="server" Text='<%# Bind("ROLE") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="md:col-span-2 space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Address</label>
+                                    <asp:TextBox ID="ADDRESSTextBox" runat="server" Text='<%# Bind("ADDRESS") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-end space-x-3 pt-4 border-t border-gray-200">
+                                <asp:LinkButton ID="InsertCancelButton" runat="server"
+                                    CommandName="Cancel"
+                                    CssClass="px-4 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 border border-gray-300 rounded-md shadow-sm hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    Text="Cancel" />
+                                <asp:LinkButton ID="InsertButton" runat="server"
+                                    CommandName="Insert"
+                                    CssClass="px-4 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                                    Text="Create User" />
+                            </div>
+                        </div>
+                    </InsertItemTemplate>
 
-            <!-- GridView -->
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource1" 
-                class="min-w-full bg-white shadow-md rounded-lg overflow-hidden border border-gray-300 mb-6">
-                <AlternatingRowStyle BackColor="White" />
-                <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
-                    <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
-                    <asp:BoundField DataField="PASSWORD" HeaderText="PASSWORD" SortExpression="PASSWORD" />
-                    <asp:BoundField DataField="ADDRESS" HeaderText="ADDRESS" SortExpression="ADDRESS" />
-                    <asp:BoundField DataField="ROLE" HeaderText="ROLE" SortExpression="ROLE" />
-                </Columns>
-                <FooterStyle BackColor="#CCCC99" />
-                <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                <RowStyle BackColor="#F7F7DE" />
-                <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                <SortedAscendingHeaderStyle BackColor="#848384" />
-                <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                <SortedDescendingHeaderStyle BackColor="#575357" />
-            </asp:GridView>
+                    <ItemTemplate>
+                        <div class="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between">
+                            <div class="space-y-1">
+                                <h3 class="text-lg font-semibold text-gray-900">User Management</h3>
+                                <p class="text-sm text-gray-500">Manage user accounts and permissions</p>
+                            </div>
+                            <div class="flex space-x-3">
+                                <asp:LinkButton ID="NewButton" runat="server"
+                                    CommandName="New"
+                                    CssClass="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    Text="New User" />
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:FormView>
+            </div>
 
-            <!-- FormView -->
-            <asp:FormView ID="FormView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1" 
-                class="w-full max-w-4xl p-6 bg-white shadow-md rounded-lg" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
-                <EditItemTemplate>
-                    <!-- Form fields for editing -->
-                    <div class="mb-4">
-                        <label for="IDLabel1" class="block text-gray-700">ID:</label>
-                        <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' class="block text-gray-900" />
-                    </div>
-                    <div class="mb-4">
-                        <label for="NAMETextBox" class="block text-gray-700">NAME:</label>
-                        <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>' class="w-full p-2 border border-gray-300 rounded-md" />
-                    </div>
-                    <div class="mb-4">
-                        <label for="PASSWORDTextBox" class="block text-gray-700">PASSWORD:</label>
-                        <asp:TextBox ID="PASSWORDTextBox" runat="server" Text='<%# Bind("PASSWORD") %>' class="w-full p-2 border border-gray-300 rounded-md" />
-                    </div>
-                    <div class="mb-4">
-                        <label for="ADDRESSTextBox" class="block text-gray-700">ADDRESS:</label>
-                        <asp:TextBox ID="ADDRESSTextBox" runat="server" Text='<%# Bind("ADDRESS") %>' class="w-full p-2 border border-gray-300 rounded-md" />
-                    </div>
-                    <div class="mb-4">
-                        <label for="ROLETextBox" class="block text-gray-700">ROLE:</label>
-                        <asp:TextBox ID="ROLETextBox" runat="server" Text='<%# Bind("ROLE") %>' class="w-full p-2 border border-gray-300 rounded-md" />
-                    </div>
-                    <div class="flex space-x-4">
-                        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" 
-                            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none" />
-                        <asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" 
-                            class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 focus:outline-none" />
-                    </div>
-                </EditItemTemplate>
-                <EditRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                <FooterStyle BackColor="#CCCC99" />
-                <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                <InsertItemTemplate>
-                    <!-- Form fields for inserting -->
-                    <div class="mb-4">
-                        <label for="IDTextBox" class="block text-gray-700">ID:</label>
-                        <asp:TextBox ID="IDTextBox" runat="server" class="w-full p-2 border border-gray-300 rounded-md" />
-                    </div>
-                    <div class="mb-4">
-                        <label for="NAMETextBox" class="block text-gray-700">NAME:</label>
-                        <asp:TextBox ID="NAMETextBox" runat="server" class="w-full p-2 border border-gray-300 rounded-md" />
-                    </div>
-                    <div class="mb-4">
-                        <label for="PASSWORDTextBox" class="block text-gray-700">PASSWORD:</label>
-                        <asp:TextBox ID="PASSWORDTextBox" runat="server" class="w-full p-2 border border-gray-300 rounded-md" />
-                    </div>
-                    <div class="mb-4">
-                        <label for="ADDRESSTextBox" class="block text-gray-700">ADDRESS:</label>
-                        <asp:TextBox ID="ADDRESSTextBox" runat="server" class="w-full p-2 border border-gray-300 rounded-md" />
-                    </div>
-                    <div class="mb-4">
-                        <label for="ROLETextBox" class="block text-gray-700">ROLE:</label>
-                        <asp:TextBox ID="ROLETextBox" runat="server" class="w-full p-2 border border-gray-300 rounded-md" />
-                    </div>
-                    <div class="flex space-x-4">
-                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" 
-                            class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none" />
-                        <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" 
-                            class="bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600 focus:outline-none" />
-                    </div>
-                </InsertItemTemplate>
-                <InsertRowStyle BackColor="#B2D8B2" />
-                <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                <RowStyle BackColor="#F7F7DE" />
-            </asp:FormView>
-
-        <!-- SqlDataSource -->
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-            DeleteCommand="DELETE FROM &quot;User&quot; WHERE &quot;ID&quot; = :ID" InsertCommand="INSERT INTO &quot;User&quot; (&quot;ID&quot;, &quot;NAME&quot;, &quot;PASSWORD&quot;, &quot;ADDRESS&quot;, &quot;ROLE&quot;) VALUES (:ID, :NAME, :PASSWORD, :ADDRESS, :ROLE)" 
-            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;User&quot;" 
-            UpdateCommand="UPDATE &quot;User&quot; SET &quot;NAME&quot; = :NAME, &quot;PASSWORD&quot; = :PASSWORD, &quot;ADDRESS&quot; = :ADDRESS, &quot;ROLE&quot; = :ROLE WHERE &quot;ID&quot; = :ID">
-            <DeleteParameters>
-                <asp:Parameter Name="ID" Type="Decimal" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="ID" Type="Decimal" />
-                <asp:Parameter Name="NAME" Type="String" />
-                <asp:Parameter Name="PASSWORD" Type="String" />
-                <asp:Parameter Name="ADDRESS" Type="String" />
-                <asp:Parameter Name="ROLE" Type="String" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="NAME" Type="String" />
-                <asp:Parameter Name="PASSWORD" Type="String" />
-                <asp:Parameter Name="ADDRESS" Type="String" />
-                <asp:Parameter Name="ROLE" Type="String" />
-                <asp:Parameter Name="ID" Type="Decimal" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
-    </form>
+            <!-- SQL Data Source (Unchanged) -->
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                DeleteCommand="DELETE FROM &quot;User&quot; WHERE &quot;ID&quot; = :ID" 
+                InsertCommand="INSERT INTO &quot;User&quot; (&quot;ID&quot;, &quot;NAME&quot;, &quot;PASSWORD&quot;, &quot;ADDRESS&quot;, &quot;ROLE&quot;) VALUES (:ID, :NAME, :PASSWORD, :ADDRESS, :ROLE)" 
+                ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
+                SelectCommand="SELECT * FROM &quot;User&quot;" 
+                UpdateCommand="UPDATE &quot;User&quot; SET &quot;NAME&quot; = :NAME, &quot;PASSWORD&quot; = :PASSWORD, &quot;ADDRESS&quot; = :ADDRESS, &quot;ROLE&quot; = :ROLE WHERE &quot;ID&quot; = :ID">
+                <DeleteParameters>
+                    <asp:Parameter Name="ID" Type="Decimal" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="ID" Type="Decimal" />
+                    <asp:Parameter Name="NAME" Type="String" />
+                    <asp:Parameter Name="PASSWORD" Type="String" />
+                    <asp:Parameter Name="ADDRESS" Type="String" />
+                    <asp:Parameter Name="ROLE" Type="String" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="ID" Type="Decimal" />
+                    <asp:Parameter Name="NAME" Type="String" />
+                    <asp:Parameter Name="PASSWORD" Type="String" />
+                    <asp:Parameter Name="ADDRESS" Type="String" />
+                    <asp:Parameter Name="ROLE" Type="String" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
+        </form>
+    </main>
 </body>
 </html>

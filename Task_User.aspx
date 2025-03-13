@@ -1,68 +1,84 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Task_User.aspx.cs" Inherits="databaseCW.Task_User" %>
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Task User Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50  items-center justify-center min-h-screen">
-           <nav class="bg-gray-800 p-4 shadow-md">
-           <div class="container mx-auto flex justify-between items-center">
-              <asp:HyperLink CssClass="text-white text-2xl font-semibold" NavigateUrl="~/" runat="server">Database CW</asp:HyperLink>
-
-               <ul class="hidden md:flex space-x-4 ml-auto">
-              
-
-    <li><a class="hover:text-gray-300" runat="server" href="~/Home">Home</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/user">User</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Task">Task</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Milestone">Milestone</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/SubTask">SubTask</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Project_User">Project-User</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Task_User">Task-User</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Project">Project</a></li>
-     <li><a class="hover:text-gray-300" runat="server" href="~/Project_Milestone">Project_Milestone</a></li>
-</ul>
-               <button class="md:hidden text-white">☰</button>
-           </div>
-       </nav>
-    <form id="form1" runat="server" class="w-full max-w-7xl p-6 bg-white shadow-lg rounded-lg">
-        <div class="text-center mb-6">
-            <h1 class="text-3xl font-semibold text-gray-800">Task User Management</h1>
+<body class="bg-gray-50">
+    <!-- Enhanced Navigation -->
+    <nav class="bg-gray-800 shadow-lg">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <asp:HyperLink CssClass="text-white text-xl font-semibold tracking-tight" NavigateUrl="~/" runat="server">
+                     Database Cw
+                </asp:HyperLink>
+                <div class="hidden md:block">
+                  <div class="ml-10 flex items-center space-x-4">
+      <a runat="server" href="~/Home" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+ <a runat="server" href="~/user" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Users</a>
+ <a runat="server" href="~/Task" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tasks</a>
+ <a runat="server" href="~/Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Milestones</a>
+ <a runat="server" href="~/SubTask" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SubTasks</a>
+ <a runat="server" href="~/Project_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Project-User</a>
+ <a runat="server" href="~/Task_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Task-User</a>
+ <a runat="server" href="~/Project" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+ <a runat="server" href="~/Project_Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects-Milestone</a>
+ </div>
+                </div>
+            </div>
         </div>
+    </nav>
 
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID,EXPR1" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" class="w-full text-left text-sm text-gray-700">
-            <AlternatingRowStyle BackColor="white" />
-            <Columns>
-                <asp:BoundField DataField="TASK_ID" HeaderText="TASK_ID" SortExpression="TASK_ID" />
-                <asp:BoundField DataField="USER_ID" HeaderText="USER_ID" SortExpression="USER_ID" />
-                <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
-            </Columns>
-            <FooterStyle BackColor="#CCCC99" />
-            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-            <RowStyle BackColor="#F7F7DE" />
-            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#FBFBF2" />
-            <SortedAscendingHeaderStyle BackColor="#848384" />
-            <SortedDescendingCellStyle BackColor="#EAEAD3" />
-            <SortedDescendingHeaderStyle BackColor="#575357" />
+    <!-- Main Content Container -->
+    <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <form id="form1" runat="server" class="space-y-8">
+            <!-- Title Section -->
+            <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-800">Task User Management</h1>
+                <p class="mt-2 text-lg text-gray-600">Manage task-user assignments and relationships</p>
+            </div>
 
-            
-        </asp:GridView>
+            <!-- Data Grid Section -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+                <asp:GridView ID="GridView1" runat="server"
+                    AllowPaging="True"
+                    AllowSorting="True"
+                    AutoGenerateColumns="False"
+                    DataKeyNames="ID,EXPR1"
+                    DataSourceID="SqlDataSource1"
+                    CssClass="w-full border-collapse"
+                    HeaderStyle-CssClass="bg-gray-50"
+                    RowStyle-CssClass="even:bg-gray-50 hover:bg-gray-100 transition-colors">
+                    
+                    <Columns>
+                        <asp:CommandField 
+                            ShowSelectButton="True"
+                            ControlStyle-CssClass="text-blue-600 hover:text-blue-800" />
+                        
+                        <asp:BoundField DataField="TASK_ID" HeaderText="Task ID" SortExpression="TASK_ID" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" />
+                        
+                        <asp:BoundField DataField="USER_ID" HeaderText="User ID" SortExpression="USER_ID" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" />
+                        
+                        <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" />
+                    </Columns>
+                    
+                    <HeaderStyle CssClass="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200" />
+                    <RowStyle CssClass="border-b border-gray-200" />
+                    <PagerStyle CssClass="px-4 py-3 border-t border-gray-200 bg-gray-50 text-sm" />
+                </asp:GridView>
+            </div>
 
-        <!-- Add this comment outside the GridView -->
-        <!-- Pagination with advanced styling -->
-        <asp:PagerStyle CssClass="flex justify-center items-center space-x-2 mt-6 bg-gray-100 p-3 rounded-full shadow-md" 
-                        BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Center">
-            <ItemStyle CssClass="bg-blue-200 text-white px-4 py-2 rounded-lg cursor-pointer hover:bg-blue-300 transition-all"/>
-            <SelectedItemStyle CssClass="bg-blue-500 text-white font-semibold px-4 py-2 rounded-lg cursor-pointer"/>
-        </asp:PagerStyle>
-
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT TASK_USER.*, &quot;User&quot;.ID, TASK.ID AS EXPR1 FROM TASK, &quot;User&quot;, TASK_USER WHERE TASK.ID = &quot;User&quot;.ID AND TASK.ID = TASK_USER.TASK_ID AND &quot;User&quot;.ID = TASK_USER.USER_ID"></asp:SqlDataSource>
-    </form>
-
+            <!-- SQL Data Source (Unchanged) -->
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
+                SelectCommand="SELECT TASK_USER.*, &quot;User&quot;.ID, TASK.ID AS EXPR1 FROM TASK, &quot;User&quot;, TASK_USER WHERE TASK.ID = &quot;User&quot;.ID AND TASK.ID = TASK_USER.TASK_ID AND &quot;User&quot;.ID = TASK_USER.USER_ID">
+            </asp:SqlDataSource>
+        </form>
+    </main>
 </body>
 </html>

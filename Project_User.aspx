@@ -7,26 +7,30 @@
     <title>Project User Management</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-100 font-sans">
-          <nav class="bg-gray-800 p-4 shadow-md">
-           <div class="container mx-auto flex justify-between items-center">
-               <asp:HyperLink CssClass="text-white text-2xl font-semibold" NavigateUrl="~/" runat="server">Database CW</asp:HyperLink>
-
-               <ul class="hidden md:flex space-x-4 ml-auto">
-       <li><a class="hover:text-gray-300" runat="server" href="~/Home">Home</a></li>
-
-    <li><a class="hover:text-gray-300" runat="server" href="~/user">User</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Task">Task</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Milestone">Milestone</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/SubTask">SubTask</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Project_User">Project-User</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Task_User">Task-User</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Project">Project</a></li>
-     <li><a class="hover:text-gray-300" runat="server" href="~/Project_Milestone">Project_Milestone</a></li>
-</ul>
-               <button class="md:hidden text-white">☰</button>
-           </div>
-       </nav>
+<body class="bg-gray-50">
+    <!-- Enhanced Navigation -->
+    <nav class="bg-gray-800 shadow-lg">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <asp:HyperLink CssClass="text-white text-xl font-semibold tracking-tight" NavigateUrl="~/" runat="server">
+                     Database Cw
+                </asp:HyperLink>
+                <div class="hidden md:block">
+                  <div class="ml-10 flex items-center space-x-4">
+     <a runat="server" href="~/Home" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+ <a runat="server" href="~/user" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Users</a>
+ <a runat="server" href="~/Task" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tasks</a>
+ <a runat="server" href="~/Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Milestones</a>
+ <a runat="server" href="~/SubTask" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SubTasks</a>
+ <a runat="server" href="~/Project_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Project-User</a>
+ <a runat="server" href="~/Task_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Task-User</a>
+ <a runat="server" href="~/Project" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+ <a runat="server" href="~/Project_Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects-Milestone</a>
+ </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <form id="form1" runat="server" class="container mx-auto p-4">
         <!-- User Selection -->
@@ -49,6 +53,7 @@
                     AlternatingRowStyle-CssClass="bg-gray-50" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
 <AlternatingRowStyle CssClass="bg-gray-50" BackColor="White"></AlternatingRowStyle>
                     <Columns>
+                        <asp:CommandField ShowSelectButton="True" />
                         <asp:BoundField DataField="ID" HeaderText="User ID" ReadOnly="True" SortExpression="ID" ItemStyle-CssClass="px-6 py-4 whitespace-nowrap text-right" >
 <ItemStyle CssClass="px-6 py-4 whitespace-nowrap text-right"></ItemStyle>
                         </asp:BoundField>

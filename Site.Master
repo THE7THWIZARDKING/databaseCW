@@ -19,9 +19,14 @@
 </head>
 <body>
     <form runat="server">
-       
+        <a href="file:///c:\users\shres\source\repos\databasecw\Project_User.aspx.designer.cs">file:///c:\users\shres\source\repos\databasecw\Project_User.aspx.designer.cs</a>
+        <a href="file:///c:\users\shres\source\repos\databasecw\Project_User.aspx.designer.csfile:///c:\users\shres\source\repos\databasecw\Project_User.aspx.cs">file:///c:\users\shres\source\repos\databasecw\Project_User.aspx.designer.csfile:///c:\users\shres\source\repos\databasecw\Project_User.aspx.cs</a>
+        <a href="file:///c:\users\shres\source\repos\databasecw\Project_User.aspx.designer.csfile:///c:\users\shres\source\repos\databasecw\Project_User.aspx.csfile:///c:\users\shres\source\repos\databasecw\Project_User.aspx">file:///c:\users\shres\source\repos\databasecw\Project_User.aspx.designer.csfile:///c:\users\shres\source\repos\databasecw\Project_User.aspx.csfile:///c:\users\shres\source\repos\databasecw\Project_User.aspx</a>
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+            <a href="file:///c:\users\shres\source\repos\databasecw\Site.Master.designer.cs">file:///c:\users\shres\source\repos\databasecw\Site.Master.designer.cs</a>
+            <a href="file:///c:\users\shres\source\repos\databasecw\Site.Master.designer.csfile:///c:\users\shres\source\repos\databasecw\Site.Master.cs">file:///c:\users\shres\source\repos\databasecw\Site.Master.designer.csfile:///c:\users\shres\source\repos\databasecw\Site.Master.cs</a>
+            <a href="file:///c:\users\shres\source\repos\databasecw\Site.Master.designer.csfile:///c:\users\shres\source\repos\databasecw\Site.Master.csfile:///c:\users\shres\source\repos\databasecw\Site.Master">file:///c:\users\shres\source\repos\databasecw\Site.Master.designer.csfile:///c:\users\shres\source\repos\databasecw\Site.Master.csfile:///c:\users\shres\source\repos\databasecw\Site.Master</a>
             <div class="container">
                 <a class="navbar-brand" runat="server" href="~/"> Database cw</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"

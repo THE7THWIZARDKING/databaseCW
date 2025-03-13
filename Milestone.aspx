@@ -3,104 +3,207 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Milestone Management</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
-
-    <!-- Navbar -->
-    <nav class="bg-gray-800 p-2 shadow-md w-full">
-        <div class="container mx-auto flex justify-between items-center">
-            <asp:HyperLink CssClass="text-white text-2xl font-semibold" NavigateUrl="~/" runat="server">Database CW</asp:HyperLink>
-            <ul class="hidden md:flex space-x-4 ml-auto">
-                <li><a class="hover:text-gray-300" runat="server" href="~/Home">Home</a></li>
-                <li><a class="hover:text-gray-300" runat="server" href="~/user">User</a></li>
-                <li><a class="hover:text-gray-300" runat="server" href="~/Task">Task</a></li>
-                <li><a class="hover:text-gray-300" runat="server" href="~/Milestone">Milestone</a></li>
-                <li><a class="hover:text-gray-300" runat="server" href="~/SubTask">SubTask</a></li>
-                <li><a class="hover:text-gray-300" runat="server" href="~/Project_User">Project-User</a></li>
-                <li><a class="hover:text-gray-300" runat="server" href="~/Task_User">Task-User</a></li>
-                <li><a class="hover:text-gray-300" runat="server" href="~/Project">Project</a></li>
-                <li><a class="hover:text-gray-300" runat="server" href="~/Project_Milestone">Project_Milestone</a></li>
-            </ul>
-            <button class="md:hidden text-white">☰</button>
+<body class="bg-gray-50">
+    <!-- Enhanced Navigation -->
+    <nav class="bg-gray-800 shadow-lg">
+        <div class="mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <asp:HyperLink CssClass="text-white text-xl font-semibold tracking-tight" NavigateUrl="~/" runat="server">
+                     Database Cw
+                </asp:HyperLink>
+                <div class="hidden md:block">
+                  <div class="ml-10 flex items-center space-x-4">
+   <a runat="server" href="~/Home" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+ <a runat="server" href="~/user" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Users</a>
+ <a runat="server" href="~/Task" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tasks</a>
+ <a runat="server" href="~/Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Milestones</a>
+ <a runat="server" href="~/SubTask" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SubTasks</a>
+ <a runat="server" href="~/Project_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Project-User</a>
+ <a runat="server" href="~/Task_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Task-User</a>
+ <a runat="server" href="~/Project" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+ <a runat="server" href="~/Project_Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects-Milestone</a>
+ </div>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <!-- Main content section -->
-    <div class="flex-grow flex justify-center items-start p-4"> <!-- Reduced padding -->
-        <form id="form1" runat="server" class="bg-white shadow-lg rounded-lg p-6 w-full max-w-4xl">
-            <h1 class="text-3xl font-semibold text-center text-gray-800 mb-4">Milestone Management</h1>
-
-            <!-- GridView Styled -->
-            <div class="overflow-x-auto mb-4">
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID" DataSourceID="SqlDataSource1" CssClass="w-full border border-gray-300 rounded-lg shadow-sm" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical">
-                    <AlternatingRowStyle BackColor="White" />
+    <!-- Main Content Container -->
+    <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <form id="form1" runat="server" class="space-y-8">
+            <!-- Data Grid Section -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+                <asp:GridView ID="GridView1" runat="server"
+                    AllowPaging="True"
+                    AllowSorting="True"
+                    AutoGenerateColumns="False"
+                    DataKeyNames="ID"
+                    DataSourceID="SqlDataSource1"
+                    CssClass="w-full border-collapse"
+                    HeaderStyle-CssClass="bg-gray-50"
+                    RowStyle-CssClass="even:bg-gray-50 hover:bg-gray-100 transition-colors">
+                    
                     <Columns>
-                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                        <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" />
-                        <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
-                        <asp:BoundField DataField="STATUS" HeaderText="STATUS" SortExpression="STATUS" />
-                        <asp:BoundField DataField="PROJECT_ID" HeaderText="PROJECT_ID" SortExpression="PROJECT_ID" />
+                        <asp:CommandField 
+                            ShowDeleteButton="True" 
+                            ShowEditButton="True"
+                            ItemStyle-Width="140px"
+                            ControlStyle-CssClass="px-3 py-1.5 text-sm font-medium text-blue-600 hover:text-blue-800 rounded-md hover:bg-gray-100 transition-colors" />
+                        
+                        <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" SortExpression="ID" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" />
+                        
+                        <asp:BoundField DataField="NAME" HeaderText="Name" SortExpression="NAME" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" />
+                        
+                        <asp:BoundField DataField="STATUS" HeaderText="Status" SortExpression="STATUS" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" />
+                        
+                        <asp:BoundField DataField="PROJECT_ID" HeaderText="Project ID" SortExpression="PROJECT_ID" 
+                            ItemStyle-CssClass="px-4 py-3 text-gray-700" />
                     </Columns>
-                    <FooterStyle BackColor="#CCCC99" />
-                    <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                    <RowStyle BackColor="#F7F7DE" />
-                    <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                    <SortedAscendingHeaderStyle BackColor="#848384" />
-                    <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                    <SortedDescendingHeaderStyle BackColor="#575357" />
+                    
+                    <HeaderStyle CssClass="px-4 py-3 bg-gray-50 text-left text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200" />
+                    <RowStyle CssClass="border-b border-gray-200" />
+                    <PagerStyle CssClass="px-4 py-3 border-t border-gray-200 bg-gray-50 text-sm" />
                 </asp:GridView>
-                <asp:FormView ID="FormView1" runat="server" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
-                    <EditItemTemplate>
-                        ID: <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' /> <br />
-                        NAME: <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>' /> <br />
-                        STATUS: <asp:TextBox ID="STATUSTextBox" runat="server" Text='<%# Bind("STATUS") %>' /> <br />
-                        PROJECT_ID: <asp:TextBox ID="PROJECT_IDTextBox" runat="server" Text='<%# Bind("PROJECT_ID") %>' /> <br />
-                        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" /> &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                    </EditItemTemplate>
-                    <EditRowStyle BackColor="#F7F7DE" Font-Bold="True" ForeColor="black" />
-                    <FooterStyle BackColor="#CCCC99" />
-                    <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                    <InsertItemTemplate>
-                        ID: <asp:TextBox ID="IDTextBox" runat="server" Text='<%# Bind("ID") %>' /> <br />
-                        NAME: <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>' /> <br />
-                        STATUS: <asp:TextBox ID="STATUSTextBox" runat="server" Text='<%# Bind("STATUS") %>' /> <br />
-                        PROJECT_ID: <asp:TextBox ID="PROJECT_IDTextBox" runat="server" Text='<%# Bind("PROJECT_ID") %>' /> <br />
-                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" /> &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-                    </InsertItemTemplate>
-                    <ItemTemplate>
-                        ID: <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' /> <br />
-                        NAME: <asp:Label ID="NAMELabel" runat="server" Text='<%# Bind("NAME") %>' /> <br />
-                        STATUS: <asp:Label ID="STATUSLabel" runat="server" Text='<%# Bind("STATUS") %>' /> <br />
-                        PROJECT_ID: <asp:Label ID="PROJECT_IDLabel" runat="server" Text='<%# Bind("PROJECT_ID") %>' /> <br />
-                        <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit" /> &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete" /> &nbsp;<asp:LinkButton ID="NewButton" runat="server" CommandName="New" Text="New" BorderColor="Black" BorderStyle="Solid" />
-                    </ItemTemplate>
-                    <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                    <RowStyle BackColor="#F7F7DE" />
-                </asp:FormView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" DeleteCommand="DELETE FROM &quot;MILESTONE&quot; WHERE &quot;ID&quot; = :ID" InsertCommand="INSERT INTO &quot;MILESTONE&quot; (&quot;ID&quot;, &quot;NAME&quot;, &quot;STATUS&quot;, &quot;PROJECT_ID&quot;) VALUES (:ID, :NAME, :STATUS, :PROJECT_ID)" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM &quot;MILESTONE&quot;" UpdateCommand="UPDATE &quot;MILESTONE&quot; SET &quot;NAME&quot; = :NAME, &quot;STATUS&quot; = :STATUS, &quot;PROJECT_ID&quot; = :PROJECT_ID WHERE &quot;ID&quot; = :ID">
-                    <DeleteParameters>
-                        <asp:Parameter Name="ID" Type="Decimal" />
-                    </DeleteParameters>
-                    <InsertParameters>
-                        <asp:Parameter Name="ID" Type="Decimal" />
-                        <asp:Parameter Name="NAME" Type="String" />
-                        <asp:Parameter Name="STATUS" Type="String" />
-                        <asp:Parameter Name="PROJECT_ID" Type="Decimal" />
-                    </InsertParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="NAME" Type="String" />
-                        <asp:Parameter Name="STATUS" Type="String" />
-                        <asp:Parameter Name="PROJECT_ID" Type="Decimal" />
-                        <asp:Parameter Name="ID" Type="Decimal" />
-                    </UpdateParameters>
-                </asp:SqlDataSource>
             </div>
-        </form>
-    </div>
 
+            <!-- Form Section -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 space-y-6">
+                <asp:FormView ID="FormView1" runat="server"
+                    DataKeyNames="ID"
+                    DataSourceID="SqlDataSource1"
+                    CssClass="w-full space-y-6">
+                    
+                    <EditItemTemplate>
+                        <div class="space-y-4">
+                            <div class="border-b border-gray-200 pb-6">
+                                <h2 class="text-lg font-semibold text-gray-900">Edit Milestone Details</h2>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Milestone ID</label>
+                                    <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' 
+                                        CssClass="block w-full px-3 py-2 border rounded-md bg-gray-50 text-gray-600" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Name</label>
+                                    <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Status</label>
+                                    <asp:TextBox ID="STATUSTextBox" runat="server" Text='<%# Bind("STATUS") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Project ID</label>
+                                    <asp:TextBox ID="PROJECT_IDTextBox" runat="server" Text='<%# Bind("PROJECT_ID") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-end space-x-3 pt-4 border-t border-gray-200">
+                                <asp:LinkButton ID="UpdateCancelButton" runat="server"
+                                    CommandName="Cancel"
+                                    CssClass="px-4 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 border border-gray-300 rounded-md shadow-sm hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    Text="Discard Changes" />
+                                <asp:LinkButton ID="UpdateButton" runat="server"
+                                    CommandName="Update"
+                                    CssClass="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    Text="Save Changes" />
+                            </div>
+                        </div>
+                    </EditItemTemplate>
+
+                    <InsertItemTemplate>
+                        <div class="space-y-4">
+                            <div class="border-b border-gray-200 pb-6">
+                                <h2 class="text-lg font-semibold text-gray-900">Create New Milestone</h2>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Milestone ID</label>
+                                    <asp:TextBox ID="IDTextBox" runat="server" Text='<%# Bind("ID") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Name</label>
+                                    <asp:TextBox ID="NAMETextBox" runat="server" Text='<%# Bind("NAME") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Status</label>
+                                    <asp:TextBox ID="STATUSTextBox" runat="server" Text='<%# Bind("STATUS") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-sm font-medium text-gray-700">Project ID</label>
+                                    <asp:TextBox ID="PROJECT_IDTextBox" runat="server" Text='<%# Bind("PROJECT_ID") %>'
+                                        CssClass="block w-full px-3 py-2 border rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-end space-x-3 pt-4 border-t border-gray-200">
+                                <asp:LinkButton ID="InsertCancelButton" runat="server"
+                                    CommandName="Cancel"
+                                    CssClass="px-4 py-2 text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 border border-gray-300 rounded-md shadow-sm hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    Text="Cancel" />
+                                <asp:LinkButton ID="InsertButton" runat="server"
+                                    CommandName="Insert"
+                                    CssClass="px-4 py-2 text-sm font-medium text-white bg-green-600 hover:bg-green-700 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                                    Text="Create Milestone" />
+                            </div>
+                        </div>
+                    </InsertItemTemplate>
+
+                    <ItemTemplate>
+                        <div class="flex flex-col space-y-4 md:flex-row md:items-center md:justify-between">
+                            <div class="space-y-1">
+                                <h3 class="text-lg font-semibold text-gray-900">Milestone Management</h3>
+                                <p class="text-sm text-gray-500">Manage project milestones and tracking</p>
+                            </div>
+                            <div class="flex space-x-3">
+                                <asp:LinkButton ID="NewButton" runat="server"
+                                    CommandName="New"
+                                    CssClass="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                                    Text="New Milestone" />
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:FormView>
+            </div>
+
+            <!-- SQL Data Source (Unchanged) -->
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+                DeleteCommand="DELETE FROM &quot;MILESTONE&quot; WHERE &quot;ID&quot; = :ID" 
+                InsertCommand="INSERT INTO &quot;MILESTONE&quot; (&quot;ID&quot;, &quot;NAME&quot;, &quot;STATUS&quot;, &quot;PROJECT_ID&quot;) VALUES (:ID, :NAME, :STATUS, :PROJECT_ID)" 
+                ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
+                SelectCommand="SELECT * FROM &quot;MILESTONE&quot;" 
+                UpdateCommand="UPDATE &quot;MILESTONE&quot; SET &quot;NAME&quot; = :NAME, &quot;STATUS&quot; = :STATUS, &quot;PROJECT_ID&quot; = :PROJECT_ID WHERE &quot;ID&quot; = :ID">
+                <DeleteParameters>
+                    <asp:Parameter Name="ID" Type="Decimal" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="ID" Type="Decimal" />
+                    <asp:Parameter Name="NAME" Type="String" />
+                    <asp:Parameter Name="STATUS" Type="String" />
+                    <asp:Parameter Name="PROJECT_ID" Type="Decimal" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="NAME" Type="String" />
+                    <asp:Parameter Name="STATUS" Type="String" />
+                    <asp:Parameter Name="PROJECT_ID" Type="Decimal" />
+                    <asp:Parameter Name="ID" Type="Decimal" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
+        </form>
+    </main>
 </body>
 </html>

@@ -15,16 +15,15 @@
           <asp:HyperLink CssClass="text-white text-2xl font-semibold" NavigateUrl="~/" runat="server">Database CW</asp:HyperLink>
 
                <ul class="hidden md:flex space-x-4 ml-auto">
-        <li><a class="hover:text-gray-300" runat="server" href="~/Home">Home</a></li>
-
-    <li><a class="hover:text-gray-300" runat="server" href="~/user">User</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Task">Task</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Milestone">Milestone</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/SubTask">SubTask</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Project_User">Project-User</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Task_User">Task-User</a></li>
-    <li><a class="hover:text-gray-300" runat="server" href="~/Project">Project</a></li>
-     <li><a class="hover:text-gray-300" runat="server" href="~/Project_Milestone">Project_Milestone</a></li>
+                                <li><a class="hover:text-gray-300 text-white" runat="server" href="~/Home">Home</a></li>
+              <li><a class="hover:text-gray-300 text-white" runat="server" href="~/user">User</a></li>
+              <li><a class="hover:text-gray-300 text-white" runat="server" href="~/Task">Task</a></li>
+              <li><a class="hover:text-gray-300 text-white" runat="server" href="~/Milestone">Milestone</a></li>
+                <li><a class="hover:text-gray-300 text-white " runat="server" href="~/SubTask">SubTask</a></li>
+<li><a class="hover:text-gray-300 text-white " runat="server" href="~/Project_User">Project-User</a></li>
+<li><a class="hover:text-gray-300 text-white " runat="server" href="~/Task_User">Task-User</a></li>
+<li><a class="hover:text-gray-300 text-white " runat="server" href="~/Project">Project</a></li>
+ <li><a class="hover:text-gray-300 text-white " runat="server" href="~/Project_Milestone">Project_Milestone</a></li>
 </ul>
                <button class="md:hidden text-white">☰</button>
            </div>

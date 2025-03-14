@@ -14,17 +14,26 @@
                      Database Cw
                 </asp:HyperLink>
                 <div class="hidden md:block">
-                  <div class="ml-10 flex items-center space-x-4">
-     <a runat="server" href="~/Home" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
- <a runat="server" href="~/user" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Users</a>
- <a runat="server" href="~/Task" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tasks</a>
- <a runat="server" href="~/Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Milestones</a>
- <a runat="server" href="~/SubTask" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">SubTasks</a>
- <a runat="server" href="~/Project_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Project-User</a>
- <a runat="server" href="~/Task_User" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Task-User</a>
- <a runat="server" href="~/Project" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
- <a runat="server" href="~/Project_Milestone" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects-Milestone</a>
- </div>
+                                     <div class="ml-10 flex items-center space-x-4">
+    <asp:HyperLink NavigateUrl="~/Home" runat="server" 
+        CssClass="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">Home</asp:HyperLink>
+    <asp:HyperLink NavigateUrl="~/user" runat="server" 
+        CssClass="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">Users</asp:HyperLink>
+    <asp:HyperLink NavigateUrl="~/Task" runat="server" 
+        CssClass="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">Tasks</asp:HyperLink>
+    <asp:HyperLink NavigateUrl="~/Milestone" runat="server" 
+        CssClass="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">Milestones</asp:HyperLink>
+    <asp:HyperLink NavigateUrl="~/SubTask" runat="server" 
+        CssClass="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">SubTasks</asp:HyperLink>
+    <asp:HyperLink NavigateUrl="~/Project_User" runat="server" 
+        CssClass="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">Project-User</asp:HyperLink>
+    <asp:HyperLink NavigateUrl="~/Task_User" runat="server" 
+        CssClass="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">Task-User</asp:HyperLink>
+    <asp:HyperLink NavigateUrl="~/Project" runat="server" 
+        CssClass="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">Projects</asp:HyperLink>
+    <asp:HyperLink NavigateUrl="~/Project_Milestone" runat="server" 
+        CssClass="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-colors">Projects-Milestone</asp:HyperLink>
+</div>
                 </div>
             </div>
         </div>

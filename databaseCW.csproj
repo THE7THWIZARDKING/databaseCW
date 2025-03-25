@@ -123,6 +123,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Milestone.aspx" />
+    <Content Include="performer.aspx" />
     <Content Include="Project.aspx" />
     <Content Include="Project_Milestone.aspx" />
     <Content Include="Project_User.aspx" />
@@ -186,6 +187,7 @@
     <Content Include="Subtask.aspx" />
     <Content Include="Task.aspx" />
     <Content Include="Task_User.aspx" />
+    <Content Include="TopPerformer.aspx" />
     <Content Include="User.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -232,6 +234,13 @@
     </Compile>
     <Compile Include="Milestone.aspx.designer.cs">
       <DependentUpon>Milestone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="performer.aspx.cs">
+      <DependentUpon>performer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="performer.aspx.designer.cs">
+      <DependentUpon>performer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Project.aspx.cs">
       <DependentUpon>Project.aspx</DependentUpon>
@@ -296,6 +305,13 @@
     </Compile>
     <Compile Include="Task_User.aspx.designer.cs">
       <DependentUpon>Task_User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TopPerformer.aspx.cs">
+      <DependentUpon>TopPerformer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TopPerformer.aspx.designer.cs">
+      <DependentUpon>TopPerformer.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
